@@ -21,18 +21,3 @@ TripPin.Publish = [
     Category = "Other",
     ButtonText = {"TripPin OData", "TripPin OData"}
 ];
-
-TripPin.Icons = [
-    Icon16 = {
-        Extension.Contents("TripPin16.png"),
-        Extension.Contents("TripPin20.png"),
-        Extension.Contents("TripPin24.png"),
-        Extension.Contents("TripPin32.png")
-    },
-    Icon32 = {
-        Extension.Contents("TripPin32.png"),
-        Extension.Contents("TripPin40.png"),
-        Extension.Contents("TripPin48.png"),
-        Extension.Contents("TripPin64.png")
-    }
-];
