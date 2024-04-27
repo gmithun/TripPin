@@ -5,7 +5,17 @@ section TripPin;
 [DataSource.Kind = "TripPin", Publish = "TripPin.Publish"]
 shared TripPin.Feed = Value.ReplaceType(TripPinImpl, type function (url as Uri.Type) as any);
 
-TripPinImpl = (url as text) => let source = OData.Feed(url) in source;
+DefaultRequestHeaders = [
+    #"Accept" = "application/json;odata.metadata=minimal",
+    #"OData-MaxVersion" = "4.0"
+];
+
+TripPinImpl = (url as text) =>
+    let
+        source = Web.Contents(url, [ Headers = DefaultRequestHeaders ]),
+        json = Json.Document(source)
+    in
+        json;
 
 // Data Source Kind description
 TripPin = [
